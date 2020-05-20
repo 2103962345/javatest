@@ -6,7 +6,8 @@ Write-Output "PowerShell $($PSVersionTable.PSEdition) version $($PSVersionTable.
 Write-Host "Congratulations! Your first script executed successfully"
 #Invoke-Expression "$path1 -version"
 #Invoke-Expression "$path2 -version"
-Start-Process -FilePath javac -ArgumentList "$PSScriptRoot\HelloWorld.java" -NoNewWindow
+#Start-Process -FilePath javac -ArgumentList "$PSScriptRoot\HelloWorld.java" -NoNewWindow
+Start-Process -FilePath javac -ArgumentList "-version" -NoNewWindow
 #Start-Process -FilePath java -ArgumentList "-classpath HelloWorld" -NoNewWindow
 cd $PSScriptRoot
 Start-Process java -ArgumentList "-classpath . HelloWorld"  -NoNewWindow #`

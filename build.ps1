@@ -7,4 +7,4 @@ Write-Host "Congratulations! Your first script executed successfully"
 #Invoke-Expression "$path1 -version"
 #Invoke-Expression "$path2 -version"
 Start-Process -FilePath javac -ArgumentList "$PSScriptRoot\HelloWorld.java" -NoNewWindow
-Start-Process -FilePath java -ArgumentList "$PSScriptRoot\HelloWorld" -NoNewWindow
+Start-Process -FilePath java -ArgumentList "-classpath . $PSScriptRoot\HelloWorld" -NoNewWindow

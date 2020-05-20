@@ -4,9 +4,12 @@ Write-Output "PowerShell $($PSVersionTable.PSEdition) version $($PSVersionTable.
 Write-Host "Congratulations! Your first script executed successfully"
 
 cd $PSScriptRoot
-Start-Process -FilePath javac -ArgumentList "HelloWorld.java" -NoNewWindow
-Start-Process -FilePath javac -ArgumentList "-version" -NoNewWindow
+Start-Process -FilePath javac -ArgumentList "HelloWorld.java" `
+-RedirectStandardOutput '.\console1.out' -RedirectStandardError '.\console1.err' 
 #Start-Process -FilePath java -ArgumentList "-classpath HelloWorld" -NoNewWindow
-
-Start-Process java -ArgumentList '-cp', '.', 'HelloWorld'  -NoNewWindow #`
-#-RedirectStandardOutput '.\console.out' -RedirectStandardError '.\console.err' 
+gc console1.out
+gc console1.err
+Start-Process java -ArgumentList '-cp', '.', 'HelloWorld' `
+-RedirectStandardOutput '.\console2.out' -RedirectStandardError '.\console2.err' 
+gc console2.out
+gc console2.err
